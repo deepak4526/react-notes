@@ -71,7 +71,7 @@ type Props = { data: NotePageData };
 
 const NotePage = ({ data }: Props) => {
   return (
-    <div className="max-w-4xl mx-auto space-y-8 pb-12">
+    <div className="mx-auto space-y-8 pb-12">
       {/* Header */}
       <div className="border-b pb-6">
         <h1 className="text-3xl font-bold mb-2 text-gray-900">{data.title}</h1>

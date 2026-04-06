@@ -1,0 +1,6 @@
+File	Why Unused
+src/pages/Variables.tsx	Old page — replaced by new VariablesPage in pages/index.tsx
+src/features/notes/data/NotesData.ts	Old data format (string content, not blocks) — replaced by structured files
+src/features/notes/components/NotesList.tsx	Used old NotesData, now Home.tsx uses its own UI
+src/features/notes/components/NoteCard.tsx	Only used by NotesList.tsx (which is itself unused)
+src/features/notes/hooks/useSearch.ts	Empty file — was never implemented

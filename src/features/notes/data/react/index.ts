@@ -9,5 +9,12 @@ export { listsKeysNotes }            from "./listsKeys";
 export { formsNotes }                from "./forms";
 export { routingNotes }              from "./routing";
 
+// Advanced React
+export { reactMemoNotes }           from "./reactMemo";
+export { lazySuspenseNotes }        from "./lazySuspense";
+export { errorBoundariesNotes }     from "./errorBoundaries";
+export { portalsNotes }             from "./portals";
+export { hocNotes }                 from "./hoc";
+
 // Hooks
 export * from "./hooks";
