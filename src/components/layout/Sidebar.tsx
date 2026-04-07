@@ -90,7 +90,7 @@ function SidebarGroup({ group }: { group: NavGroup }) {
 
   // Keep group open if any of its items match the current path
   const hasActiveChild = group.items.some(
-    (item) => location.pathname === item.path
+    (item) => location.pathname === item.path,
   );
 
   const [isOpen, setIsOpen] = useState(hasActiveChild || isGroupActive);
@@ -100,18 +100,20 @@ function SidebarGroup({ group }: { group: NavGroup }) {
       {/* Group Header */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-150 ${hasActiveChild
-          ? "bg-purple-100 text-purple-700"
-          : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-          }`}
+        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-150 ${
+          hasActiveChild
+            ? "bg-purple-100 text-purple-700"
+            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+        }`}
       >
         <span className="flex items-center gap-2">
           <span>{group.emoji}</span>
           <span>{group.label}</span>
         </span>
         <svg
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? "rotate-90" : ""
-            }`}
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+            isOpen ? "rotate-90" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -133,9 +135,10 @@ function SidebarGroup({ group }: { group: NavGroup }) {
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-left block px-4 py-1.5 rounded-md text-sm transition-colors duration-150 ${isActive
-                    ? "bg-purple-600 text-white font-medium"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                  `text-left block px-4 py-1.5 rounded-md text-sm transition-colors duration-150 ${
+                    isActive
+                      ? "bg-purple-600 text-white font-medium"
+                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                   }`
                 }
               >
@@ -157,7 +160,7 @@ const Sidebar = () => {
       <div className="px-4 py-5 border-b border-gray-200">
         <NavLink to="/" className="flex items-center gap-2">
           <div className="w-7 h-7 bg-purple-600 rounded-md flex items-center justify-center">
-            <span className="text-white text-xs font-bold">N</span>
+            <span className="text-white text-xs font-bold">P</span>
           </div>
           <span className="font-bold text-gray-900 text-base">DevNotes</span>
         </NavLink>
@@ -171,9 +174,10 @@ const Sidebar = () => {
           to="/"
           end
           className={({ isActive }) =>
-            `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150 mb-3 ${isActive
-              ? "bg-purple-600 text-white"
-              : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+            `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150 mb-3 ${
+              isActive
+                ? "bg-purple-600 text-white"
+                : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
             }`
           }
         >

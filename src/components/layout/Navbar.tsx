@@ -20,16 +20,20 @@ const Navbar = () => {
       {/* Brand */}
       <Link to="/" className="flex items-center gap-2 mr-2">
         <div className="w-6 h-6 bg-purple-600 rounded flex items-center justify-center">
-          <span className="text-white text-xs font-bold">N</span>
+          <span className="text-white text-xs font-bold">P</span>
         </div>
-        <span className="font-bold text-gray-900 text-sm hidden sm:block">DevNotes</span>
+        <span className="font-bold text-gray-900 text-sm hidden sm:block">
+          DevNotes
+        </span>
       </Link>
 
       {/* Divider */}
       <span className="text-gray-300">/</span>
 
       {/* Current page breadcrumb */}
-      <span className="text-sm font-medium text-gray-600">{getPageTitle()}</span>
+      <span className="text-sm font-medium text-gray-600">
+        {getPageTitle()}
+      </span>
 
       {/* Spacer */}
       <div className="flex-1" />
