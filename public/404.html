@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script>
+        var path = window.location.pathname;
+        var base = "/react-notes";
+
+        if (path.startsWith(base)) {
+            var newPath = path.replace(base, "");
+            window.location.replace(base + "/#" + newPath);
+        }
+    </script>
+</head>
+
+<body></body>
+
+</html>
