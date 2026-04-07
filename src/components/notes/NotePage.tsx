@@ -35,7 +35,7 @@ const renderBlock = (block: ContentBlock, index: number) => {
           className="rounded-lg overflow-hidden border border-gray-700"
         >
           {block.language && (
-            <div className="bg-gray-800 text-gray-400 text-xs px-4 py-1.5 font-mono tracking-wide uppercase">
+            <div className="bg-gray-900 text-gray-400 text-xs px-4 py-1.5 font-mono tracking-wide uppercase">
               {block.language}
             </div>
           )}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 // ─── Types ────────────────────────────────────────────────────────
@@ -12,6 +12,12 @@ interface NavGroup {
   emoji: string;
   basePath: string;
   items: NavItem[];
+}
+
+interface SidebarGroupProps {
+  group: NavGroup;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
 // ─── Nav Structure ────────────────────────────────────────────────
@@ -84,22 +90,17 @@ const navGroups: NavGroup[] = [
 ];
 
 // ─── Single Group ─────────────────────────────────────────────────
-function SidebarGroup({ group }: { group: NavGroup }) {
+function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
   const location = useLocation();
-  const isGroupActive = location.pathname.startsWith(group.basePath);
-
-  // Keep group open if any of its items match the current path
   const hasActiveChild = group.items.some(
     (item) => location.pathname === item.path,
   );
-
-  const [isOpen, setIsOpen] = useState(hasActiveChild || isGroupActive);
 
   return (
     <div className="mb-1">
       {/* Group Header */}
       <button
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={onToggle}
         className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-150 ${
           hasActiveChild
             ? "bg-purple-100 text-purple-700"
@@ -154,6 +155,20 @@ function SidebarGroup({ group }: { group: NavGroup }) {
 
 // ─── Sidebar ──────────────────────────────────────────────────────
 const Sidebar = () => {
+  const location = useLocation();
+
+  const activeGroupLabel = navGroups.find((group) =>
+    group.items.some((item) => item.path === location.pathname),
+  )?.label;
+
+  const [openGroup, setOpenGroup] = useState<string | null>(
+    activeGroupLabel ?? "JavaScript",
+  );
+
+  useEffect(() => {
+    setOpenGroup(activeGroupLabel ?? "JavaScript");
+  }, [activeGroupLabel]);
+
   return (
     <aside className="w-64 border-r border-gray-200 bg-gray-50 flex flex-col h-full overflow-y-auto">
       {/* Logo / Brand */}
@@ -190,7 +205,16 @@ const Sidebar = () => {
         </div>
 
         {navGroups.map((group) => (
-          <SidebarGroup key={group.label} group={group} />
+          <SidebarGroup
+            key={group.label}
+            group={group}
+            isOpen={openGroup === group.label}
+            onToggle={() =>
+              setOpenGroup((current) =>
+                current === group.label ? null : group.label,
+              )
+            }
+          />
         ))}
       </nav>
 
