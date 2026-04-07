@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deepak4526.github.io/react-notes/sitemap.xml
