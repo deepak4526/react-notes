@@ -1,5 +1,9 @@
 import type { ContentBlock, NotePageData } from "../../types/note";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import js from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+SyntaxHighlighter.registerLanguage("javascript", js);
 // ─── Styles per highlight variant ────────────────────────────────
 const highlightStyles: Record<string, string> = {
   info: "border-blue-400 bg-blue-50 text-blue-900",
@@ -32,9 +36,16 @@ const renderBlock = (block: ContentBlock, index: number) => {
               {block.language}
             </div>
           )}
-          <pre className="bg-gray-950 text-green-300 text-sm p-4 overflow-x-auto font-mono leading-relaxed">
+          <SyntaxHighlighter
+            language={block.language || "javascript"}
+            style={dracula}
+            showLineNumbers
+            wrapLines
+            customStyle={{ margin: 0 }}
+          >
             {block.code}
-          </pre>
+            {/* <pre>{block.code}</pre> */}
+          </SyntaxHighlighter>
         </div>
       );
 
@@ -70,12 +81,14 @@ const renderBlock = (block: ContentBlock, index: number) => {
 type Props = { data: NotePageData };
 
 const NotePage = ({ data }: Props) => {
+  console.log("RAW CODE:", data?.sections[0]?.blocks[3]?.code);
+  console.log("STRINGIFIED:", JSON.stringify(data?.sections[0]?.blocks[3]?.code));
   return (
-    <div className="mx-auto space-y-8 pb-12">
+    <div className="mx-auto space-y-8 pb-12 dark">
       {/* Header */}
       <div className="border-b pb-6">
         <h1 className="text-3xl font-bold mb-2 text-gray-900">{data.title}</h1>
-        <p className="text-gray-500 text-base leading-relaxed">{data.description}</p>
+        <p className="text-gray-500 text-left text-base leading-relaxed">{data.description}</p>
       </div>
 
       {/* Sections */}
@@ -83,7 +96,7 @@ const NotePage = ({ data }: Props) => {
         <div
           key={section.id}
           id={section.id}
-          className="border border-gray-200 rounded-xl p-6 shadow-sm bg-white space-y-4"
+          className="border border-gray-200 rounded-xl p-6 shadow-sm bg-white space-y-4 text-left"
         >
           <h2 className="text-lg font-semibold text-purple-700 border-b border-purple-100 pb-2">
             {section.title}
