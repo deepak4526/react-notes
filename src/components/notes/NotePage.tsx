@@ -30,7 +30,10 @@ const renderBlock = (block: ContentBlock, index: number) => {
 
     case "code":
       return (
-        <div key={index} className="rounded-lg overflow-hidden border border-gray-700">
+        <div
+          key={index}
+          className="rounded-lg overflow-hidden border border-gray-700"
+        >
           {block.language && (
             <div className="bg-gray-800 text-gray-400 text-xs px-4 py-1.5 font-mono tracking-wide uppercase">
               {block.language}
@@ -64,8 +67,13 @@ const renderBlock = (block: ContentBlock, index: number) => {
       return (
         <ul key={index} className="space-y-1.5 list-none">
           {block.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-              <span className="text-purple-500 font-bold mt-0.5 shrink-0">▸</span>
+            <li
+              key={i}
+              className="flex items-start gap-2 text-sm text-gray-700"
+            >
+              <span className="text-purple-500 font-bold mt-0.5 shrink-0">
+                ▸
+              </span>
               {item}
             </li>
           ))}
@@ -81,14 +89,16 @@ const renderBlock = (block: ContentBlock, index: number) => {
 type Props = { data: NotePageData };
 
 const NotePage = ({ data }: Props) => {
-  console.log("RAW CODE:", data?.sections[0]?.blocks[3]?.code);
-  console.log("STRINGIFIED:", JSON.stringify(data?.sections[0]?.blocks[3]?.code));
+  // console.log("RAW CODE:", data?.sections[0]?.blocks[3]?.code);
+  // console.log("STRINGIFIED:", JSON.stringify(data?.sections[0]?.blocks[3]?.code));
   return (
     <div className="mx-auto space-y-8 pb-12 dark">
       {/* Header */}
       <div className="border-b pb-6">
         <h1 className="text-3xl font-bold mb-2 text-gray-900">{data.title}</h1>
-        <p className="text-gray-500 text-left text-base leading-relaxed">{data.description}</p>
+        <p className="text-gray-500 text-left text-base leading-relaxed">
+          {data.description}
+        </p>
       </div>
 
       {/* Sections */}
