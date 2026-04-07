@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/</loc>
+  </url>
+
+  <!-- JavaScript Topics -->
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/variables</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/data-types</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/arrow-functions</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/destructuring</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/spread-rest</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/array-methods</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/closures</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/promises</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/modules</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/this-keyword</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/async-await</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/error-handling</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/hoisting</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/scope</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/js/prototypes</loc>
+  </url>
+
+  <!-- React Core Topics -->
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/introduction</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/jsx</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/components</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/props</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/events</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/conditional-rendering</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/lists-keys</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/forms</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/routing</loc>
+  </url>
+
+  <!-- Advanced React Topics -->
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/memo</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/lazy-suspense</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/error-boundaries</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/portals</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hoc</loc>
+  </url>
+
+  <!-- React Hooks -->
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-state</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-effect</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-ref</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-context</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-reducer</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-memo</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/use-callback</loc>
+  </url>
+
+  <url>
+    <loc>https://deepak4526.github.io/react-notes/react/hooks/custom-hooks</loc>
+  </url>
+
+</urlset>
