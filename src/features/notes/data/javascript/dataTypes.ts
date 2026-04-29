@@ -10,9 +10,13 @@ export const dataTypesNotes: NotePageData = {
       title: "Primitive Types (7 types)",
       blocks: [
         {
-          type: "text",
-          text: "Primitives are the building blocks. They are immutable and compared/copied by VALUE.",
+          type: "list",
+          items: [
+            "Primitives are the building blocks. They are immutable and compared/copied by VALUE.",
+            "Symbol:— Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description.",
+          ],
         },
+
         {
           type: "code",
           language: "javascript",
@@ -38,7 +42,9 @@ console.log(x); // undefined
 const user = null;
 
 // 6. Symbol — unique identifier (rarely used directly)
-const id = Symbol("id");
+const id1 = Symbol("id");
+const id2 = SYmbol("id");
+console.log(id1 === id2); //false
 
 // 7. BigInt — very large integers beyond Number.MAX_SAFE_INTEGER
 const bigNum = 9007199254740991n;`,
@@ -146,6 +152,25 @@ typeof null;         // "object" ← don't use this for null check`,
         {
           type: "text",
           text: "JavaScript automatically converts types in certain situations. Knowing truthy/falsy values is essential in React for conditional rendering.",
+        },
+        {
+          type: "text",
+          text: "In JS, everything is evaluated as either:",
+        },
+        {
+          type: "list",
+          items: [
+            "Truthy— behaves like true in conditions.",
+            "False— behaves like false in conditions.",
+          ],
+        },
+        {
+          type: "text",
+          text: 'All Falsy values — false, 0, -0, 0n, "", null, undefined, NaN, everything else is Truthy.',
+        },
+        {
+          type: "text",
+          text: "Matters in — if, while, &&, ||, ternary operator",
         },
         {
           type: "code",
