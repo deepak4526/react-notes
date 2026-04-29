@@ -27,6 +27,7 @@ const navGroups: NavGroup[] = [
     emoji: "🟡",
     basePath: "/js",
     items: [
+      { label: "Intro", path: "/js/intro-js" },
       { label: "Variables", path: "/js/variables" },
       { label: "Data Types", path: "/js/data-types" },
       { label: "Arrow Functions", path: "/js/arrow-functions" },

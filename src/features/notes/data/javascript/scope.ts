@@ -6,6 +6,25 @@ export const scopeNotes: NotePageData = {
     "Scope defines the accessibility of variables. Execution Context is the environment in which JavaScript code is evaluated and executed. Understanding both is essential for writing bug-free JS.",
   sections: [
     {
+      id: "EC",
+      title: "",
+      blocks: [
+        {
+          type: "text",
+          text: "Think of it as a box where JS keeps:",
+        },
+        {
+          type: "list",
+          items: ["Variables, Functions, Scope information, this value"],
+        },
+        {
+          type: "highlight",
+          variant: "tip",
+          text: "Whenever JavaScript runs code it creates a new Execution Context.",
+        },
+      ],
+    },
+    {
       id: "types-of-scope",
       title: "Types of Scope",
       blocks: [

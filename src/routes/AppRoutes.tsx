@@ -18,6 +18,7 @@ import {
   HoistingPage,
   ScopePage,
   PrototypesPage,
+  IntroJSPage,
 } from "../pages";
 
 // React core pages
@@ -52,47 +53,51 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
 
       {/* ── JavaScript ── */}
-      <Route path="/js/variables"       element={<VariablesPage />} />
-      <Route path="/js/data-types"      element={<DataTypesPage />} />
+      <Route path="/js/intro-js" element={<IntroJSPage />} />
+      <Route path="/js/variables" element={<VariablesPage />} />
+      <Route path="/js/data-types" element={<DataTypesPage />} />
       <Route path="/js/arrow-functions" element={<ArrowFunctionsPage />} />
-      <Route path="/js/destructuring"   element={<DestructuringPage />} />
-      <Route path="/js/spread-rest"     element={<SpreadRestPage />} />
-      <Route path="/js/array-methods"   element={<ArrayMethodsPage />} />
-      <Route path="/js/closures"        element={<ClosuresPage />} />
-      <Route path="/js/promises"        element={<PromisesPage />} />
-      <Route path="/js/modules"         element={<ModulesPage />} />
-      <Route path="/js/this-keyword"    element={<ThisKeywordPage />} />
-      <Route path="/js/async-await"     element={<AsyncAwaitPage />} />
-      <Route path="/js/error-handling"  element={<ErrorHandlingPage />} />
-      <Route path="/js/hoisting"        element={<HoistingPage />} />
-      <Route path="/js/scope"           element={<ScopePage />} />
-      <Route path="/js/prototypes"      element={<PrototypesPage />} />
+      <Route path="/js/destructuring" element={<DestructuringPage />} />
+      <Route path="/js/spread-rest" element={<SpreadRestPage />} />
+      <Route path="/js/array-methods" element={<ArrayMethodsPage />} />
+      <Route path="/js/closures" element={<ClosuresPage />} />
+      <Route path="/js/promises" element={<PromisesPage />} />
+      <Route path="/js/modules" element={<ModulesPage />} />
+      <Route path="/js/this-keyword" element={<ThisKeywordPage />} />
+      <Route path="/js/async-await" element={<AsyncAwaitPage />} />
+      <Route path="/js/error-handling" element={<ErrorHandlingPage />} />
+      <Route path="/js/hoisting" element={<HoistingPage />} />
+      <Route path="/js/scope" element={<ScopePage />} />
+      <Route path="/js/prototypes" element={<PrototypesPage />} />
 
       {/* ── React Core ── */}
-      <Route path="/react/introduction"          element={<IntroductionPage />} />
-      <Route path="/react/jsx"                   element={<JSXPage />} />
-      <Route path="/react/components"            element={<ComponentsPage />} />
-      <Route path="/react/props"                 element={<PropsPage />} />
-      <Route path="/react/events"                element={<EventsPage />} />
-      <Route path="/react/conditional-rendering" element={<ConditionalRenderingPage />} />
-      <Route path="/react/lists-keys"            element={<ListsKeysPage />} />
-      <Route path="/react/forms"                 element={<FormsPage />} />
-      <Route path="/react/routing"               element={<RoutingPage />} />
+      <Route path="/react/introduction" element={<IntroductionPage />} />
+      <Route path="/react/jsx" element={<JSXPage />} />
+      <Route path="/react/components" element={<ComponentsPage />} />
+      <Route path="/react/props" element={<PropsPage />} />
+      <Route path="/react/events" element={<EventsPage />} />
+      <Route
+        path="/react/conditional-rendering"
+        element={<ConditionalRenderingPage />}
+      />
+      <Route path="/react/lists-keys" element={<ListsKeysPage />} />
+      <Route path="/react/forms" element={<FormsPage />} />
+      <Route path="/react/routing" element={<RoutingPage />} />
 
       {/* ── Advanced React ── */}
-      <Route path="/react/memo"             element={<ReactMemoPage />} />
-      <Route path="/react/lazy-suspense"    element={<LazySuspensePage />} />
+      <Route path="/react/memo" element={<ReactMemoPage />} />
+      <Route path="/react/lazy-suspense" element={<LazySuspensePage />} />
       <Route path="/react/error-boundaries" element={<ErrorBoundariesPage />} />
-      <Route path="/react/portals"          element={<PortalsPage />} />
-      <Route path="/react/hoc"              element={<HOCPage />} />
+      <Route path="/react/portals" element={<PortalsPage />} />
+      <Route path="/react/hoc" element={<HOCPage />} />
 
       {/* ── React Hooks ── */}
-      <Route path="/react/hooks/use-state"    element={<UseStatePage />} />
-      <Route path="/react/hooks/use-effect"   element={<UseEffectPage />} />
-      <Route path="/react/hooks/use-ref"      element={<UseRefPage />} />
-      <Route path="/react/hooks/use-context"  element={<UseContextPage />} />
-      <Route path="/react/hooks/use-reducer"  element={<UseReducerPage />} />
-      <Route path="/react/hooks/use-memo"     element={<UseMemoPage />} />
+      <Route path="/react/hooks/use-state" element={<UseStatePage />} />
+      <Route path="/react/hooks/use-effect" element={<UseEffectPage />} />
+      <Route path="/react/hooks/use-ref" element={<UseRefPage />} />
+      <Route path="/react/hooks/use-context" element={<UseContextPage />} />
+      <Route path="/react/hooks/use-reducer" element={<UseReducerPage />} />
+      <Route path="/react/hooks/use-memo" element={<UseMemoPage />} />
       <Route path="/react/hooks/use-callback" element={<UseCallbackPage />} />
       <Route path="/react/hooks/custom-hooks" element={<CustomHooksPage />} />
     </Routes>

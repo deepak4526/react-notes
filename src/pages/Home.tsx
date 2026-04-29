@@ -14,14 +14,26 @@ function TopicCard({ emoji, label, path, color }: TopicCardProps) {
       to={path}
       className={`flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group`}
     >
-      <div className={`w-9 h-9 rounded-lg flex items-center justify-center text-lg flex-shrink-0 ${color}`}>
+      <div
+        className={`w-9 h-9 rounded-lg flex items-center justify-center text-lg flex-shrink-0 ${color}`}
+      >
         {emoji}
       </div>
       <span className="text-sm font-medium text-gray-700 group-hover:text-purple-600 transition-colors">
         {label}
       </span>
-      <svg className="w-4 h-4 text-gray-300 group-hover:text-purple-400 ml-auto transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      <svg
+        className="w-4 h-4 text-gray-300 group-hover:text-purple-400 ml-auto transition-colors"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </Link>
   );
@@ -42,7 +54,11 @@ function Section({ title, subtitle, badge, badgeColor, topics }: SectionProps) {
       <div className="flex items-start justify-between mb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${badgeColor}`}>{badge}</span>
+            <span
+              className={`text-xs font-bold px-2 py-0.5 rounded-full ${badgeColor}`}
+            >
+              {badge}
+            </span>
           </div>
           <h2 className="text-lg font-bold text-gray-900">{title}</h2>
           <p className="text-sm text-gray-500">{subtitle}</p>
@@ -72,8 +88,8 @@ const Home = () => {
           Developer Notes 📘
         </h1>
         <p className="text-gray-500 text-base max-w-xl mx-auto leading-relaxed">
-          A structured, hands-on reference for JavaScript fundamentals and React patterns.
-          Pick a topic from the sidebar or below to get started.
+          A structured, hands-on reference for JavaScript fundamentals and React
+          patterns. Pick a topic from the sidebar or below to get started.
         </p>
         <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-400">
           <span>🟡 15 JS Topics</span>
@@ -94,21 +110,102 @@ const Home = () => {
           title="JavaScript Fundamentals"
           subtitle="Core concepts every JS developer must know"
           topics={[
-            { emoji: "📦", label: "Variables",       path: "/js/variables",       color: "bg-yellow-50" },
-            { emoji: "🔤", label: "Data Types",      path: "/js/data-types",      color: "bg-yellow-50" },
-            { emoji: "➡️", label: "Arrow Functions", path: "/js/arrow-functions", color: "bg-yellow-50" },
-            { emoji: "🔑", label: "this Keyword",    path: "/js/this-keyword",    color: "bg-yellow-50" },
-            { emoji: "⬆️", label: "Hoisting",        path: "/js/hoisting",        color: "bg-yellow-50" },
-            { emoji: "🔭", label: "Scope & Context", path: "/js/scope",           color: "bg-yellow-50" },
-            { emoji: "🔒", label: "Closures",        path: "/js/closures",        color: "bg-yellow-50" },
-            { emoji: "📦", label: "Destructuring",   path: "/js/destructuring",   color: "bg-yellow-50" },
-            { emoji: "🌊", label: "Spread & Rest",   path: "/js/spread-rest",     color: "bg-yellow-50" },
-            { emoji: "🗃️", label: "Array Methods",   path: "/js/array-methods",   color: "bg-yellow-50" },
-            { emoji: "🔗", label: "Prototypes",      path: "/js/prototypes",      color: "bg-yellow-50" },
-            { emoji: "🤝", label: "Promises",        path: "/js/promises",        color: "bg-yellow-50" },
-            { emoji: "⏳", label: "Async / Await",   path: "/js/async-await",     color: "bg-yellow-50" },
-            { emoji: "🚨", label: "Error Handling",  path: "/js/error-handling",  color: "bg-yellow-50" },
-            { emoji: "📂", label: "Modules",         path: "/js/modules",         color: "bg-yellow-50" },
+            {
+              emoji: "🙋",
+              label: "Intro",
+              path: "/js/intro-js",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "📦",
+              label: "Variables",
+              path: "/js/variables",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🔤",
+              label: "Data Types",
+              path: "/js/data-types",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "➡️",
+              label: "Arrow Functions",
+              path: "/js/arrow-functions",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🔑",
+              label: "this Keyword",
+              path: "/js/this-keyword",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "⬆️",
+              label: "Hoisting",
+              path: "/js/hoisting",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🔭",
+              label: "Scope & Context",
+              path: "/js/scope",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🔒",
+              label: "Closures",
+              path: "/js/closures",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "📦",
+              label: "Destructuring",
+              path: "/js/destructuring",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🌊",
+              label: "Spread & Rest",
+              path: "/js/spread-rest",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🗃️",
+              label: "Array Methods",
+              path: "/js/array-methods",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🔗",
+              label: "Prototypes",
+              path: "/js/prototypes",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🤝",
+              label: "Promises",
+              path: "/js/promises",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "⏳",
+              label: "Async / Await",
+              path: "/js/async-await",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "🚨",
+              label: "Error Handling",
+              path: "/js/error-handling",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "📂",
+              label: "Modules",
+              path: "/js/modules",
+              color: "bg-yellow-50",
+            },
           ]}
         />
 
@@ -118,15 +215,60 @@ const Home = () => {
           title="React Core"
           subtitle="Essential building blocks of every React app"
           topics={[
-            { emoji: "🌟", label: "Introduction",          path: "/react/introduction",          color: "bg-blue-50" },
-            { emoji: "🏗️", label: "JSX",                   path: "/react/jsx",                   color: "bg-blue-50" },
-            { emoji: "🧩", label: "Components",            path: "/react/components",            color: "bg-blue-50" },
-            { emoji: "📨", label: "Props",                 path: "/react/props",                 color: "bg-blue-50" },
-            { emoji: "🖱️", label: "Events",               path: "/react/events",                color: "bg-blue-50" },
-            { emoji: "❓", label: "Conditional Rendering", path: "/react/conditional-rendering", color: "bg-blue-50" },
-            { emoji: "📋", label: "Lists & Keys",          path: "/react/lists-keys",            color: "bg-blue-50" },
-            { emoji: "📝", label: "Forms",                 path: "/react/forms",                 color: "bg-blue-50" },
-            { emoji: "🗺️", label: "Routing",              path: "/react/routing",               color: "bg-blue-50" },
+            {
+              emoji: "🌟",
+              label: "Introduction",
+              path: "/react/introduction",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "🏗️",
+              label: "JSX",
+              path: "/react/jsx",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "🧩",
+              label: "Components",
+              path: "/react/components",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "📨",
+              label: "Props",
+              path: "/react/props",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "🖱️",
+              label: "Events",
+              path: "/react/events",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "❓",
+              label: "Conditional Rendering",
+              path: "/react/conditional-rendering",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "📋",
+              label: "Lists & Keys",
+              path: "/react/lists-keys",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "📝",
+              label: "Forms",
+              path: "/react/forms",
+              color: "bg-blue-50",
+            },
+            {
+              emoji: "🗺️",
+              label: "Routing",
+              path: "/react/routing",
+              color: "bg-blue-50",
+            },
           ]}
         />
 
@@ -136,11 +278,36 @@ const Home = () => {
           title="Advanced React"
           subtitle="Performance, patterns, and architectural tools"
           topics={[
-            { emoji: "💾", label: "React.memo",       path: "/react/memo",             color: "bg-rose-50" },
-            { emoji: "✂️", label: "Lazy & Suspense",  path: "/react/lazy-suspense",    color: "bg-rose-50" },
-            { emoji: "🛡️", label: "Error Boundaries", path: "/react/error-boundaries", color: "bg-rose-50" },
-            { emoji: "🌀", label: "Portals",          path: "/react/portals",          color: "bg-rose-50" },
-            { emoji: "🎁", label: "HOC",              path: "/react/hoc",              color: "bg-rose-50" },
+            {
+              emoji: "💾",
+              label: "React.memo",
+              path: "/react/memo",
+              color: "bg-rose-50",
+            },
+            {
+              emoji: "✂️",
+              label: "Lazy & Suspense",
+              path: "/react/lazy-suspense",
+              color: "bg-rose-50",
+            },
+            {
+              emoji: "🛡️",
+              label: "Error Boundaries",
+              path: "/react/error-boundaries",
+              color: "bg-rose-50",
+            },
+            {
+              emoji: "🌀",
+              label: "Portals",
+              path: "/react/portals",
+              color: "bg-rose-50",
+            },
+            {
+              emoji: "🎁",
+              label: "HOC",
+              path: "/react/hoc",
+              color: "bg-rose-50",
+            },
           ]}
         />
 
@@ -150,14 +317,54 @@ const Home = () => {
           title="React Hooks"
           subtitle="Built-in hooks for state, effects, and more"
           topics={[
-            { emoji: "🔢", label: "useState",     path: "/react/hooks/use-state",    color: "bg-purple-50" },
-            { emoji: "⚡", label: "useEffect",    path: "/react/hooks/use-effect",   color: "bg-purple-50" },
-            { emoji: "📌", label: "useRef",       path: "/react/hooks/use-ref",      color: "bg-purple-50" },
-            { emoji: "🌍", label: "useContext",   path: "/react/hooks/use-context",  color: "bg-purple-50" },
-            { emoji: "🔄", label: "useReducer",   path: "/react/hooks/use-reducer",  color: "bg-purple-50" },
-            { emoji: "🧠", label: "useMemo",      path: "/react/hooks/use-memo",     color: "bg-purple-50" },
-            { emoji: "📞", label: "useCallback",  path: "/react/hooks/use-callback", color: "bg-purple-50" },
-            { emoji: "🪝", label: "Custom Hooks", path: "/react/hooks/custom-hooks", color: "bg-purple-50" },
+            {
+              emoji: "🔢",
+              label: "useState",
+              path: "/react/hooks/use-state",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "⚡",
+              label: "useEffect",
+              path: "/react/hooks/use-effect",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "📌",
+              label: "useRef",
+              path: "/react/hooks/use-ref",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "🌍",
+              label: "useContext",
+              path: "/react/hooks/use-context",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "🔄",
+              label: "useReducer",
+              path: "/react/hooks/use-reducer",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "🧠",
+              label: "useMemo",
+              path: "/react/hooks/use-memo",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "📞",
+              label: "useCallback",
+              path: "/react/hooks/use-callback",
+              color: "bg-purple-50",
+            },
+            {
+              emoji: "🪝",
+              label: "Custom Hooks",
+              path: "/react/hooks/custom-hooks",
+              color: "bg-purple-50",
+            },
           ]}
         />
       </div>
