@@ -9,13 +9,13 @@ export const dataTypesNotes: NotePageData = {
       id: "primitives",
       title: "Primitive Types (7 types)",
       blocks: [
-        {
-          type: "list",
-          items: [
-            "Primitives are the building blocks. They are immutable and compared/copied by VALUE.",
-            "Symbol:— Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description.",
-          ],
-        },
+        // {
+        //   type: "list",
+        //   items: [
+        //     "Primitives are the building blocks. They are immutable and compared/copied by VALUE.",
+        //     "Symbol:— Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description.",
+        //   ],
+        // },
 
         {
           type: "code",
@@ -41,7 +41,7 @@ console.log(x); // undefined
 // 5. Null — intentional "no value" (you set this)
 const user = null;
 
-// 6. Symbol — unique identifier (rarely used directly)
+// 6. Symbol — unique identifier (rarely used directly) - Check in detail below
 const id1 = Symbol("id");
 const id2 = SYmbol("id");
 console.log(id1 === id2); //false
@@ -63,6 +63,84 @@ b = 99;
 console.log(a); // 10 ← unchanged (separate copy)`,
         },
       ],
+    },
+    {
+      id:'symbols-in-detail',
+      title:"Symbols",
+      blocks:[
+        {
+          type:'highlight',
+          variant:'tip',
+          text:"Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description."
+        },
+        {
+          type:'text',
+          text:'Think of it as "hidden ID badge." It is a unique peice of data that is guaranteed to be different from every other symbol, even if you give them same name.'
+        },
+        {
+          type:'title',
+          title:'1. They are Unique (No Duplicates)'
+        },
+        {
+          type:'text',
+          text:'When you create a Symbol, it is one-of-a-kind. Even if you create two Symbols with exact same description, they are not equal.'
+        },
+        {
+          type:'code',
+          language:'javascript',
+          code:`let id1 = Symbol("id");
+let id2 = Symbol("id");
+
+console.log(id1 == id2) // or
+console.log( id1 === id2) // in both cases output will be false always
+          `
+        },
+        {
+          type:'title',
+          title:'2. They are "Hidden" from Loops'
+        },
+        {
+          type:'text',
+          text:"Symbols are primarily used as property keys for objects. However, unlike regular keys(strings), Symbols don't show up in standard loops like `for...in` or `Object.keys()`"
+        },
+        {
+          type:'text',
+          text:`This makes them perfect for adding "private" metadata to an object that you don't want other parts of your code to accidentally overwrite`
+        },
+        {
+          type:"text",
+          text:`If you try to loop through an object to see what's inside, the Symbol properties simply act like they don't exist.`
+        },
+        {
+          type:'text',
+          text:`Imagine you have a user object. You have a public name, but you want to attach a secret internal ID that shouldn't pop up during normal operations.`
+        },
+        {
+          type:'code',
+          language:'javascript',
+          code:`// 1. Create a Symbol
+const secretID = Symbol("id");
+
+let user = {
+  name: "Alice",
+  age: 25,
+  [secretID]: 99012 // This is the Symbol property
+};
+
+// 2. Try to loop through the keys
+for (let key in user) {
+  console.log(key); 
+}
+// Output: 
+// "name"
+// "age"
+// (Notice 'secretID' is missing!)
+
+// 3. Try Object.keys()
+console.log(Object.keys(user)); 
+// Output: ["name", "age"]`
+        }
+      ]
     },
     {
       id: "reference-types",

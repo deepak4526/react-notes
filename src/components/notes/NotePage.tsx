@@ -27,7 +27,10 @@ const renderBlock = (block: ContentBlock, index: number) => {
           {block.text}
         </p>
       );
-
+case "title":
+  return (
+    <strong key={index} className="text-gray-900 flex flex-col gap-3"><hr/>{block.title}</strong>
+  )
     case "code":
       return (
         <div
