@@ -33,7 +33,14 @@ const names = users.map(user => user.name);
 console.log(names); // ["Deepak", "Raj"]
 
 // Transform objects
-const withRole = users.map(user => ({ ...user, role: "admin" }));`,
+const withRole = users.map(user => ({ ...user, role: "admin" }));
+console.log(withRole) // It will give you [object,object] in console
+// But here the withRole has become like
+// Output:[
+// {id: 1, name: "Deepak", age: 25, role: "admin"},
+// {id: 2, name: "Raj", age: 28, role: "admin"}
+// ]
+`,
         },
         {
           type: "code",

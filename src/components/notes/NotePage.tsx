@@ -27,10 +27,13 @@ const renderBlock = (block: ContentBlock, index: number) => {
           {block.text}
         </p>
       );
-case "title":
-  return (
-    <strong key={index} className="text-gray-900 flex flex-col gap-3"><hr/>{block.title}</strong>
-  )
+    case "title":
+      return (
+        <strong key={index} className="text-gray-900 flex flex-col gap-3">
+          <hr />
+          {block.title}
+        </strong>
+      );
     case "code":
       return (
         <div
@@ -94,6 +97,7 @@ type Props = { data: NotePageData };
 const NotePage = ({ data }: Props) => {
   // console.log("RAW CODE:", data?.sections[0]?.blocks[3]?.code);
   // console.log("STRINGIFIED:", JSON.stringify(data?.sections[0]?.blocks[3]?.code));
+
   return (
     <div className="mx-auto space-y-8 pb-12 dark">
       {/* Header */}
