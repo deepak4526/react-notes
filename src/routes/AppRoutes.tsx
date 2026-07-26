@@ -19,6 +19,10 @@ import {
   ScopePage,
   PrototypesPage,
   IntroJSPage,
+  ObjectNotesPage,
+  LoopsPage,
+  Performance1,
+  Performance2,
 } from "../pages";
 
 // React core pages
@@ -60,6 +64,16 @@ const AppRoutes = () => {
       <Route path="/js/destructuring" element={<DestructuringPage />} />
       <Route path="/js/spread-rest" element={<SpreadRestPage />} />
       <Route path="/js/array-methods" element={<ArrayMethodsPage />} />
+      <Route path="/js/objects" element={<ObjectNotesPage />} />
+      <Route path="/js/loops-iterations" element={<LoopsPage />} />
+      <Route
+        path="/js/performance-time-complexity"
+        element={<Performance1 />}
+      />
+      <Route
+        path="/js/performance-time-complexity-part-2"
+        element={<Performance2 />}
+      />
       <Route path="/js/closures" element={<ClosuresPage />} />
       <Route path="/js/promises" element={<PromisesPage />} />
       <Route path="/js/modules" element={<ModulesPage />} />

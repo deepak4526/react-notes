@@ -9,6 +9,7 @@ export interface Note {
 export type HighlightVariant = "info" | "warning" | "tip" | "important";
 
 export type ContentBlock =
+  | { type: "title"; text: string }
   | { type: "text"; text: string }
   | { type: "code"; code: string; language?: string }
   | { type: "highlight"; variant: HighlightVariant; text: string }

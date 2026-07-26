@@ -177,9 +177,34 @@ const Home = () => {
               color: "bg-yellow-50",
             },
             {
+              emoji: "🗂️",
+              label: "Objects",
+              path: "/js/objects",
+              color: "bg-yellow-50",
+            },
+            {
               emoji: "🔗",
               label: "Prototypes",
               path: "/js/prototypes",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "♻️",
+              label: "Loops And Iterations",
+              path: "/js/loops-iterations",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "",
+              label: "Performance & Time Complexity: Core Concepts",
+              path: "/js/performance-time-complexity",
+              color: "bg-yellow-50",
+            },
+            {
+              emoji: "",
+              label:
+                "Performance & Time Complexity: JavaScript & Interview Patterns",
+              path: "/js/performance-time-complexity-part-2",
               color: "bg-yellow-50",
             },
             {

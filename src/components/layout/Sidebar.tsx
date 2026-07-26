@@ -38,7 +38,17 @@ const navGroups: NavGroup[] = [
       { label: "Destructuring", path: "/js/destructuring" },
       { label: "Spread & Rest", path: "/js/spread-rest" },
       { label: "Array Methods", path: "/js/array-methods" },
+      { label: "Objects", path: "/js/objects" },
       { label: "Prototypes", path: "/js/prototypes" },
+      { label: "Loops And Iterations", path: "/js/loops-iterations" },
+      {
+        label: "Performance & Time Complexity: Core Concepts",
+        path: "/js/performance-time-complexity",
+      },
+      {
+        label: "Performance & Time Complexity: JavaScript & Interview Patterns",
+        path: "/js/performance-time-complexity-part-2",
+      },
       { label: "Promises", path: "/js/promises" },
       { label: "Async / Await", path: "/js/async-await" },
       { label: "Error Handling", path: "/js/error-handling" },
