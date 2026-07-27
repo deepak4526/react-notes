@@ -65,60 +65,60 @@ console.log(a); // 10 ← unchanged (separate copy)`,
       ],
     },
     {
-      id:'symbols-in-detail',
-      title:"Symbols",
-      blocks:[
+      id: "symbols-in-detail",
+      title: "Symbols",
+      blocks: [
         {
-          type:'highlight',
-          variant:'tip',
-          text:"Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description."
+          type: "highlight",
+          variant: "tip",
+          text: "Symbols are unique and immutable values often used as private keys for object properties. Every symbol is guaranteed to be unique, even if two symbols have the same description.",
         },
         {
-          type:'text',
-          text:'Think of it as "hidden ID badge." It is a unique peice of data that is guaranteed to be different from every other symbol, even if you give them same name.'
+          type: "text",
+          text: 'Think of it as "hidden ID badge." It is a unique peice of data that is guaranteed to be different from every other symbol, even if you give them same name.',
         },
         {
-          type:'title',
-          title:'1. They are Unique (No Duplicates)'
+          type: "title",
+          text: "1. They are Unique (No Duplicates)",
         },
         {
-          type:'text',
-          text:'When you create a Symbol, it is one-of-a-kind. Even if you create two Symbols with exact same description, they are not equal.'
+          type: "text",
+          text: "When you create a Symbol, it is one-of-a-kind. Even if you create two Symbols with exact same description, they are not equal.",
         },
         {
-          type:'code',
-          language:'javascript',
-          code:`let id1 = Symbol("id");
+          type: "code",
+          language: "javascript",
+          code: `let id1 = Symbol("id");
 let id2 = Symbol("id");
 
 console.log(id1 == id2) // or
 console.log( id1 === id2) // in both cases output will be false always
-          `
+          `,
         },
         {
-          type:'title',
-          title:'2. They are "Hidden" from Loops'
+          type: "title",
+          text: '2. They are "Hidden" from Loops',
         },
         {
-          type:'text',
-          text:"Symbols are primarily used as property keys for objects. However, unlike regular keys(strings), Symbols don't show up in standard loops like `for...in` or `Object.keys()`"
+          type: "text",
+          text: "Symbols are primarily used as property keys for objects. However, unlike regular keys(strings), Symbols don't show up in standard loops like `for...in` or `Object.keys()`",
         },
         {
-          type:'text',
-          text:`This makes them perfect for adding "private" metadata to an object that you don't want other parts of your code to accidentally overwrite`
+          type: "text",
+          text: `This makes them perfect for adding "private" metadata to an object that you don't want other parts of your code to accidentally overwrite`,
         },
         {
-          type:"text",
-          text:`If you try to loop through an object to see what's inside, the Symbol properties simply act like they don't exist.`
+          type: "text",
+          text: `If you try to loop through an object to see what's inside, the Symbol properties simply act like they don't exist.`,
         },
         {
-          type:'text',
-          text:`Imagine you have a user object. You have a public name, but you want to attach a secret internal ID that shouldn't pop up during normal operations.`
+          type: "text",
+          text: `Imagine you have a user object. You have a public name, but you want to attach a secret internal ID that shouldn't pop up during normal operations.`,
         },
         {
-          type:'code',
-          language:'javascript',
-          code:`// 1. Create a Symbol
+          type: "code",
+          language: "javascript",
+          code: `// 1. Create a Symbol
 const secretID = Symbol("id");
 
 let user = {
@@ -138,9 +138,9 @@ for (let key in user) {
 
 // 3. Try Object.keys()
 console.log(Object.keys(user)); 
-// Output: ["name", "age"]`
-        }
-      ]
+// Output: ["name", "age"]`,
+        },
+      ],
     },
     {
       id: "reference-types",
