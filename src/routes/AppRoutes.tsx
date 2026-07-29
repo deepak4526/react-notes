@@ -23,6 +23,9 @@ import {
   LoopsPage,
   Performance1,
   Performance2,
+  JsPracticeEasy,
+  JsPracticeMedium,
+  JsPracticeHard,
 } from "../pages";
 
 // React core pages
@@ -83,6 +86,9 @@ const AppRoutes = () => {
       <Route path="/js/hoisting" element={<HoistingPage />} />
       <Route path="/js/scope" element={<ScopePage />} />
       <Route path="/js/prototypes" element={<PrototypesPage />} />
+      <Route path="/js/practice-easy" element={<JsPracticeEasy />} />
+      <Route path="/js/practice-medium" element={<JsPracticeMedium />} />
+      <Route path="/js/practice-hard" element={<JsPracticeHard />} />
 
       {/* ── React Core ── */}
       <Route path="/react/introduction" element={<IntroductionPage />} />

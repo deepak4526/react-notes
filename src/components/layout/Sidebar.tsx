@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 // ─── Types ────────────────────────────────────────────────────────
@@ -8,9 +8,9 @@ interface NavItem {
 }
 
 interface NavGroup {
+  id: string;
   label: string;
   emoji: string;
-  basePath: string;
   items: NavItem[];
 }
 
@@ -23,9 +23,9 @@ interface SidebarGroupProps {
 // ─── Nav Structure ────────────────────────────────────────────────
 const navGroups: NavGroup[] = [
   {
+    id: "javascript",
     label: "JavaScript",
     emoji: "🟡",
-    basePath: "/js",
     items: [
       { label: "Intro", path: "/js/intro-js" },
       { label: "Variables", path: "/js/variables" },
@@ -53,28 +53,34 @@ const navGroups: NavGroup[] = [
       { label: "Async / Await", path: "/js/async-await" },
       { label: "Error Handling", path: "/js/error-handling" },
       { label: "Modules", path: "/js/modules" },
+      { label: "🌱 Practice Questions: Easy", path: "/js/practice-easy" },
+      { label: "🧩 Practice Questions: Medium", path: "/js/practice-medium" },
+      { label: "🔥 Practice Questions: Hard", path: "/js/practice-hard" },
     ],
   },
   {
+    id: "react-core",
     label: "React — Core",
     emoji: "⚛️",
-    basePath: "/react",
     items: [
       { label: "Introduction", path: "/react/introduction" },
       { label: "JSX", path: "/react/jsx" },
       { label: "Components", path: "/react/components" },
       { label: "Props", path: "/react/props" },
       { label: "Events", path: "/react/events" },
-      { label: "Conditional Rendering", path: "/react/conditional-rendering" },
+      {
+        label: "Conditional Rendering",
+        path: "/react/conditional-rendering",
+      },
       { label: "Lists & Keys", path: "/react/lists-keys" },
       { label: "Forms", path: "/react/forms" },
       { label: "Routing", path: "/react/routing" },
     ],
   },
   {
+    id: "react-advanced",
     label: "React — Advanced",
     emoji: "🚀",
-    basePath: "/react",
     items: [
       { label: "React.memo", path: "/react/memo" },
       { label: "Lazy & Suspense", path: "/react/lazy-suspense" },
@@ -84,9 +90,9 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
+    id: "react-hooks",
     label: "React — Hooks",
     emoji: "🪝",
-    basePath: "/react/hooks",
     items: [
       { label: "useState", path: "/react/hooks/use-state" },
       { label: "useEffect", path: "/react/hooks/use-effect" },
@@ -103,6 +109,7 @@ const navGroups: NavGroup[] = [
 // ─── Single Group ─────────────────────────────────────────────────
 function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
   const location = useLocation();
+
   const hasActiveChild = group.items.some(
     (item) => location.pathname === item.path,
   );
@@ -111,8 +118,10 @@ function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
     <div className="mb-1">
       {/* Group Header */}
       <button
+        type="button"
         onClick={onToggle}
-        className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold transition-colors duration-150 ${
+        aria-expanded={isOpen}
+        className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-150 ${
           hasActiveChild
             ? "bg-purple-100 text-purple-700"
             : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
@@ -122,8 +131,9 @@ function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
           <span>{group.emoji}</span>
           <span>{group.label}</span>
         </span>
+
         <svg
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${
             isOpen ? "rotate-90" : ""
           }`}
           fill="none"
@@ -139,17 +149,17 @@ function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
         </svg>
       </button>
 
-      {/* Items */}
+      {/* Group Items */}
       {isOpen && (
-        <ul className="mt-1 ml-3 border-l border-gray-200 pl-3 space-y-0.5">
+        <ul className="mt-1 ml-3 space-y-0.5 border-l border-gray-200 pl-3">
           {group.items.map((item) => (
             <li key={item.path}>
               <NavLink
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-left block px-4 py-1.5 rounded-md text-sm transition-colors duration-150 ${
+                  `block rounded-md px-4 py-1.5 text-left text-sm transition-colors duration-150 ${
                     isActive
-                      ? "bg-purple-600 text-white font-medium"
+                      ? "bg-purple-600 font-medium text-white"
                       : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                   }`
                 }
@@ -168,39 +178,46 @@ function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {
 const Sidebar = () => {
   const location = useLocation();
 
-  const activeGroupLabel = navGroups.find((group) =>
+  // Find which group contains the current route.
+  const activeGroup = navGroups.find((group) =>
     group.items.some((item) => item.path === location.pathname),
-  )?.label;
-
-  const [openGroup, setOpenGroup] = useState<string | null>(
-    activeGroupLabel ?? "JavaScript",
   );
 
-  useEffect(() => {
-    setOpenGroup(activeGroupLabel ?? "JavaScript");
-  }, [activeGroupLabel]);
+  // Use the current route's group when the sidebar first mounts.
+  // Otherwise default to JavaScript.
+  const [openGroupId, setOpenGroupId] = useState<string | null>(
+    activeGroup?.id ?? "javascript",
+  );
+
+  const handleGroupToggle = (groupId: string) => {
+    setOpenGroupId((currentGroupId) =>
+      currentGroupId === groupId ? null : groupId,
+    );
+  };
 
   return (
-    <aside className="w-64 border-r border-gray-200 bg-gray-50 flex flex-col h-full overflow-y-auto">
+    <aside className="flex h-full w-64 flex-col overflow-y-auto border-r border-gray-200 bg-gray-50">
       {/* Logo / Brand */}
-      <div className="px-4 py-5 border-b border-gray-200">
+      <div className="border-b border-gray-200 px-4 py-5">
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-purple-600 rounded-md flex items-center justify-center">
-            <span className="text-white text-xs font-bold">P</span>
+          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-purple-600">
+            <span className="text-xs font-bold text-white">P</span>
           </div>
-          <span className="font-bold text-gray-900 text-base">DevNotes</span>
+
+          <span className="text-base font-bold text-gray-900">DevNotes</span>
         </NavLink>
-        <p className="text-xs text-gray-400 mt-1 ml-9">JS & React Reference</p>
+
+        <p className="mt-1 ml-9 text-xs text-gray-400">JS & React Reference</p>
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1">
+      <nav className="flex-1 space-y-1 px-3 py-4">
         {/* Home */}
         <NavLink
           to="/"
           end
           className={({ isActive }) =>
-            `flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-150 mb-3 ${
+            `mb-3 flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 ${
               isActive
                 ? "bg-purple-600 text-white"
                 : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
@@ -211,28 +228,26 @@ const Sidebar = () => {
           <span>Home</span>
         </NavLink>
 
-        <div className="text-[10px] uppercase tracking-widest text-gray-400 px-3 pb-1 font-semibold">
+        <div className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-widest text-gray-400">
           Topics
         </div>
 
+        {/* Groups */}
         {navGroups.map((group) => (
           <SidebarGroup
-            key={group.label}
+            key={group.id}
             group={group}
-            isOpen={openGroup === group.label}
-            onToggle={() =>
-              setOpenGroup((current) =>
-                current === group.label ? null : group.label,
-              )
-            }
+            isOpen={openGroupId === group.id}
+            onToggle={() => handleGroupToggle(group.id)}
           />
         ))}
       </nav>
 
       {/* Footer */}
-      <div className="px-4 py-3 border-t border-gray-200">
-        <p className="text-[11px] text-gray-400 text-center">
-          {navGroups.reduce((acc, g) => acc + g.items.length, 0)} topics covered
+      <div className="border-t border-gray-200 px-4 py-3">
+        <p className="text-center text-[11px] text-gray-400">
+          {navGroups.reduce((total, group) => total + group.items.length, 0)}{" "}
+          topics covered
         </p>
       </div>
     </aside>

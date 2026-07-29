@@ -22,6 +22,9 @@ import {
   loopsAndIterationNotes,
   performanceTimeComplexityPart1Notes,
   performanceTimeComplexityPart2Notes,
+  javascriptPracticeEasy,
+  javascriptPracticeMedium,
+  javascriptPracticeHard,
 } from "../features/notes/data/javascript";
 
 // ── React core imports ─────────────────────────────────────────────
@@ -57,6 +60,11 @@ export const ArrowFunctionsPage = () => <NotePage data={arrowFunctionsNotes} />;
 export const DestructuringPage = () => <NotePage data={destructuringNotes} />;
 export const SpreadRestPage = () => <NotePage data={spreadRestNotes} />;
 export const ArrayMethodsPage = () => <NotePage data={arrayMethodsNotes} />;
+export const JsPracticeEasy = () => <NotePage data={javascriptPracticeEasy} />;
+export const JsPracticeMedium = () => (
+  <NotePage data={javascriptPracticeMedium} />
+);
+export const JsPracticeHard = () => <NotePage data={javascriptPracticeHard} />;
 export const ObjectNotesPage = () => <NotePage data={objectsNotes} />;
 export const LoopsPage = () => <NotePage data={loopsAndIterationNotes} />;
 export const Performance1 = () => (
