@@ -1,110 +1,14 @@
 import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { navGroups, type NavGroup } from "./navigation";
 
 // ─── Types ────────────────────────────────────────────────────────
-interface NavItem {
-  label: string;
-  path: string;
-}
-
-interface NavGroup {
-  id: string;
-  label: string;
-  emoji: string;
-  items: NavItem[];
-}
 
 interface SidebarGroupProps {
   group: NavGroup;
   isOpen: boolean;
   onToggle: () => void;
 }
-
-// ─── Nav Structure ────────────────────────────────────────────────
-const navGroups: NavGroup[] = [
-  {
-    id: "javascript",
-    label: "JavaScript",
-    emoji: "🟡",
-    items: [
-      { label: "Intro", path: "/js/intro-js" },
-      { label: "Variables", path: "/js/variables" },
-      { label: "Data Types", path: "/js/data-types" },
-      { label: "Arrow Functions", path: "/js/arrow-functions" },
-      { label: "this Keyword", path: "/js/this-keyword" },
-      { label: "Hoisting", path: "/js/hoisting" },
-      { label: "Scope & Context", path: "/js/scope" },
-      { label: "Closures", path: "/js/closures" },
-      { label: "Destructuring", path: "/js/destructuring" },
-      { label: "Spread & Rest", path: "/js/spread-rest" },
-      { label: "Array Methods", path: "/js/array-methods" },
-      { label: "Objects", path: "/js/objects" },
-      { label: "Prototypes", path: "/js/prototypes" },
-      { label: "Loops And Iterations", path: "/js/loops-iterations" },
-      {
-        label: "Performance & Time Complexity: Core Concepts",
-        path: "/js/performance-time-complexity",
-      },
-      {
-        label: "Performance & Time Complexity: JavaScript & Interview Patterns",
-        path: "/js/performance-time-complexity-part-2",
-      },
-      { label: "Promises", path: "/js/promises" },
-      { label: "Async / Await", path: "/js/async-await" },
-      { label: "Error Handling", path: "/js/error-handling" },
-      { label: "Modules", path: "/js/modules" },
-      { label: "Practice Questions: Easy", path: "/js/practice-easy" },
-      { label: "Practice Questions: Medium", path: "/js/practice-medium" },
-      { label: "Practice Questions: Hard", path: "/js/practice-hard" },
-    ],
-  },
-  {
-    id: "react-core",
-    label: "React — Core",
-    emoji: "⚛️",
-    items: [
-      { label: "Introduction", path: "/react/introduction" },
-      { label: "JSX", path: "/react/jsx" },
-      { label: "Components", path: "/react/components" },
-      { label: "Props", path: "/react/props" },
-      { label: "Events", path: "/react/events" },
-      {
-        label: "Conditional Rendering",
-        path: "/react/conditional-rendering",
-      },
-      { label: "Lists & Keys", path: "/react/lists-keys" },
-      { label: "Forms", path: "/react/forms" },
-      { label: "Routing", path: "/react/routing" },
-    ],
-  },
-  {
-    id: "react-advanced",
-    label: "React — Advanced",
-    emoji: "🚀",
-    items: [
-      { label: "React.memo", path: "/react/memo" },
-      { label: "Lazy & Suspense", path: "/react/lazy-suspense" },
-      { label: "Error Boundaries", path: "/react/error-boundaries" },
-      { label: "Portals", path: "/react/portals" },
-      { label: "HOC", path: "/react/hoc" },
-    ],
-  },
-  {
-    id: "react-hooks",
-    label: "React — Hooks",
-    emoji: "🪝",
-    items: [
-      { label: "useState", path: "/react/hooks/use-state" },
-      { label: "useEffect", path: "/react/hooks/use-effect" },
-      { label: "useRef", path: "/react/hooks/use-ref" },
-      { label: "useContext", path: "/react/hooks/use-context" },
-      { label: "useReducer", path: "/react/hooks/use-reducer" },
-      { label: "useMemo", path: "/react/hooks/use-memo" },
-      { label: "useCallback", path: "/react/hooks/use-callback" },
-      { label: "Custom Hooks", path: "/react/hooks/custom-hooks" },
-    ],
-  },
-];
 
 // ─── Single Group ─────────────────────────────────────────────────
 function SidebarGroup({ group, isOpen, onToggle }: SidebarGroupProps) {

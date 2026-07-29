@@ -92,7 +92,7 @@ const Home = () => {
           patterns. Pick a topic from the sidebar or below to get started.
         </p>
         <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-400">
-          <span>🟡 15 JS Topics</span>
+          <span>🟡 20 JS Topics</span>
           <span className="w-px h-4 bg-gray-200" />
           <span>⚛️ 9 React Core</span>
           <span className="w-px h-4 bg-gray-200" />

@@ -1,287 +1,296 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Home from "../pages/Home";
+import lazyNotePage from "../utils/lazyNotePage";
 
-// ── JavaScript Pages ──────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+// JavaScript
+// ─────────────────────────────────────────────────────────────────
 
-const IntroJSPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.IntroJSPage,
-  })),
+const IntroJSPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/intro").then(
+    (module) => module.introJS,
+  ),
 );
 
-const VariablesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.VariablesPage,
-  })),
+const VariablesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/variables").then(
+    (module) => module.variablesNotes,
+  ),
 );
 
-const DataTypesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.DataTypesPage,
-  })),
+const DataTypesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/dataTypes").then(
+    (module) => module.dataTypesNotes,
+  ),
 );
 
-const ArrowFunctionsPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ArrowFunctionsPage,
-  })),
+const ArrowFunctionsPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/arrowFunctions").then(
+    (module) => module.arrowFunctionsNotes,
+  ),
 );
 
-const DestructuringPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.DestructuringPage,
-  })),
+const DestructuringPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/destructuring").then(
+    (module) => module.destructuringNotes,
+  ),
 );
 
-const SpreadRestPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.SpreadRestPage,
-  })),
+const SpreadRestPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/spreadRest").then(
+    (module) => module.spreadRestNotes,
+  ),
 );
 
-const ArrayMethodsPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ArrayMethodsPage,
-  })),
+const ArrayMethodsPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/arrayMethods").then(
+    (module) => module.arrayMethodsNotes,
+  ),
 );
 
-const ObjectNotesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ObjectNotesPage,
-  })),
+const ObjectNotesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/objects").then(
+    (module) => module.objectsNotes,
+  ),
 );
 
-const LoopsPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.LoopsPage,
-  })),
+const LoopsPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/loopsAndIterations").then(
+    (module) => module.loopsAndIterationNotes,
+  ),
 );
 
-const Performance1 = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.Performance1,
-  })),
+const Performance1 = lazyNotePage(() =>
+  import("../features/notes/data/javascript/performance1").then(
+    (module) => module.performanceTimeComplexityPart1Notes,
+  ),
 );
 
-const Performance2 = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.Performance2,
-  })),
+const Performance2 = lazyNotePage(() =>
+  import("../features/notes/data/javascript/performance2").then(
+    (module) => module.performanceTimeComplexityPart2Notes,
+  ),
 );
 
-const ClosuresPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ClosuresPage,
-  })),
+const ClosuresPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/closures").then(
+    (module) => module.closuresNotes,
+  ),
 );
 
-const PromisesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.PromisesPage,
-  })),
+const PromisesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/promises").then(
+    (module) => module.promisesNotes,
+  ),
 );
 
-const ModulesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ModulesPage,
-  })),
+const ModulesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/modules").then(
+    (module) => module.modulesNotes,
+  ),
 );
 
-const ThisKeywordPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ThisKeywordPage,
-  })),
+const ThisKeywordPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/thisKeyword").then(
+    (module) => module.thisKeywordNotes,
+  ),
 );
 
-const AsyncAwaitPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.AsyncAwaitPage,
-  })),
+const AsyncAwaitPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/asyncAwait").then(
+    (module) => module.asyncAwaitNotes,
+  ),
 );
 
-const ErrorHandlingPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ErrorHandlingPage,
-  })),
+const ErrorHandlingPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/errorHandling").then(
+    (module) => module.errorHandlingNotes,
+  ),
 );
 
-const HoistingPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.HoistingPage,
-  })),
+const HoistingPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/hoisting").then(
+    (module) => module.hoistingNotes,
+  ),
 );
 
-const ScopePage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.ScopePage,
-  })),
+const ScopePage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/scope").then(
+    (module) => module.scopeNotes,
+  ),
 );
 
-const PrototypesPage = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.PrototypesPage,
-  })),
+const PrototypesPage = lazyNotePage(() =>
+  import("../features/notes/data/javascript/prototypes").then(
+    (module) => module.prototypesNotes,
+  ),
 );
 
-const JsPracticeEasy = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.JsPracticeEasy,
-  })),
+// ── JavaScript Practice ───────────────────────────────────────────
+
+const JsPracticeEasy = lazyNotePage(() =>
+  import("../features/notes/data/javascript/jsPracticeEasy").then(
+    (module) => module.javascriptPracticeEasy,
+  ),
 );
 
-const JsPracticeMedium = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.JsPracticeMedium,
-  })),
+const JsPracticeMedium = lazyNotePage(() =>
+  import("../features/notes/data/javascript/jsPracticeMedium").then(
+    (module) => module.javascriptPracticeMedium,
+  ),
 );
 
-const JsPracticeHard = lazy(() =>
-  import("../pages/jsPages").then((module) => ({
-    default: module.JsPracticeHard,
-  })),
+const JsPracticeHard = lazyNotePage(() =>
+  import("../features/notes/data/javascript/jsPracticeHard").then(
+    (module) => module.javascriptPracticeHard,
+  ),
 );
 
-// ── React Core ────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+// React Core
+// ─────────────────────────────────────────────────────────────────
 
-const IntroductionPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.IntroductionPage,
-  })),
+const IntroductionPage = lazyNotePage(() =>
+  import("../features/notes/data/react/introduction").then(
+    (module) => module.introductionNotes,
+  ),
 );
 
-const JSXPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.JSXPage,
-  })),
+const JSXPage = lazyNotePage(() =>
+  import("../features/notes/data/react/jsx").then((module) => module.jsxNotes),
 );
 
-const ComponentsPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.ComponentsPage,
-  })),
+const ComponentsPage = lazyNotePage(() =>
+  import("../features/notes/data/react/components").then(
+    (module) => module.componentsNotes,
+  ),
 );
 
-const PropsPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.PropsPage,
-  })),
+const PropsPage = lazyNotePage(() =>
+  import("../features/notes/data/react/props").then(
+    (module) => module.propsNotes,
+  ),
 );
 
-const EventsPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.EventsPage,
-  })),
+const EventsPage = lazyNotePage(() =>
+  import("../features/notes/data/react/events").then(
+    (module) => module.eventsNotes,
+  ),
 );
 
-const ConditionalRenderingPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.ConditionalRenderingPage,
-  })),
+const ConditionalRenderingPage = lazyNotePage(() =>
+  import("../features/notes/data/react/conditionalRendering").then(
+    (module) => module.conditionalRenderingNotes,
+  ),
 );
 
-const ListsKeysPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.ListsKeysPage,
-  })),
+const ListsKeysPage = lazyNotePage(() =>
+  import("../features/notes/data/react/listsKeys").then(
+    (module) => module.listsKeysNotes,
+  ),
 );
 
-const FormsPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.FormsPage,
-  })),
+const FormsPage = lazyNotePage(() =>
+  import("../features/notes/data/react/forms").then(
+    (module) => module.formsNotes,
+  ),
 );
 
-const RoutingPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.RoutingPage,
-  })),
+const RoutingPage = lazyNotePage(() =>
+  import("../features/notes/data/react/routing").then(
+    (module) => module.routingNotes,
+  ),
 );
 
-// ── React Advanced ────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+// React Advanced
+// ─────────────────────────────────────────────────────────────────
 
-const ReactMemoPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.ReactMemoPage,
-  })),
+const ReactMemoPage = lazyNotePage(() =>
+  import("../features/notes/data/react/reactMemo").then(
+    (module) => module.reactMemoNotes,
+  ),
 );
 
-const LazySuspensePage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.LazySuspensePage,
-  })),
+const LazySuspensePage = lazyNotePage(() =>
+  import("../features/notes/data/react/lazySuspense").then(
+    (module) => module.lazySuspenseNotes,
+  ),
 );
 
-const ErrorBoundariesPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.ErrorBoundariesPage,
-  })),
+const ErrorBoundariesPage = lazyNotePage(() =>
+  import("../features/notes/data/react/errorBoundaries").then(
+    (module) => module.errorBoundariesNotes,
+  ),
 );
 
-const PortalsPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.PortalsPage,
-  })),
+const PortalsPage = lazyNotePage(() =>
+  import("../features/notes/data/react/portals").then(
+    (module) => module.portalsNotes,
+  ),
 );
 
-const HOCPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.HOCPage,
-  })),
+const HOCPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hoc").then((module) => module.hocNotes),
 );
 
-// ── React Hooks ───────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+// React Hooks
+// ─────────────────────────────────────────────────────────────────
 
-const UseStatePage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseStatePage,
-  })),
+const UseStatePage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useState").then(
+    (module) => module.useStateNotes,
+  ),
 );
 
-const UseEffectPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseEffectPage,
-  })),
+const UseEffectPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useEffect").then(
+    (module) => module.useEffectNotes,
+  ),
 );
 
-const UseRefPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseRefPage,
-  })),
+const UseRefPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useRef").then(
+    (module) => module.useRefNotes,
+  ),
 );
 
-const UseContextPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseContextPage,
-  })),
+const UseContextPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useContext").then(
+    (module) => module.useContextNotes,
+  ),
 );
 
-const UseReducerPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseReducerPage,
-  })),
+const UseReducerPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useReducer").then(
+    (module) => module.useReducerNotes,
+  ),
 );
 
-const UseMemoPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseMemoPage,
-  })),
+const UseMemoPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useMemo").then(
+    (module) => module.useMemoNotes,
+  ),
 );
 
-const UseCallbackPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.UseCallbackPage,
-  })),
+const UseCallbackPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/useCallback").then(
+    (module) => module.useCallbackNotes,
+  ),
 );
 
-const CustomHooksPage = lazy(() =>
-  import("../pages/reactPages").then((module) => ({
-    default: module.CustomHooksPage,
-  })),
+const CustomHooksPage = lazyNotePage(() =>
+  import("../features/notes/data/react/hooks/customHooks").then(
+    (module) => module.customHooksNotes,
+  ),
 );
 
-// ── Routes ────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────
+// Routes
+// ─────────────────────────────────────────────────────────────────
 
 const AppRoutes = () => {
   return (
@@ -327,6 +336,8 @@ const AppRoutes = () => {
         <Route path="/js/scope" element={<ScopePage />} />
         <Route path="/js/prototypes" element={<PrototypesPage />} />
 
+        {/* ── JavaScript Practice ── */}
+
         <Route path="/js/practice-easy" element={<JsPracticeEasy />} />
         <Route path="/js/practice-medium" element={<JsPracticeMedium />} />
         <Route path="/js/practice-hard" element={<JsPracticeHard />} />
@@ -334,11 +345,8 @@ const AppRoutes = () => {
         {/* ── React Core ── */}
 
         <Route path="/react/introduction" element={<IntroductionPage />} />
-
         <Route path="/react/jsx" element={<JSXPage />} />
-
         <Route path="/react/components" element={<ComponentsPage />} />
-
         <Route path="/react/props" element={<PropsPage />} />
         <Route path="/react/events" element={<EventsPage />} />
 
@@ -348,14 +356,12 @@ const AppRoutes = () => {
         />
 
         <Route path="/react/lists-keys" element={<ListsKeysPage />} />
-
         <Route path="/react/forms" element={<FormsPage />} />
         <Route path="/react/routing" element={<RoutingPage />} />
 
         {/* ── React Advanced ── */}
 
         <Route path="/react/memo" element={<ReactMemoPage />} />
-
         <Route path="/react/lazy-suspense" element={<LazySuspensePage />} />
 
         <Route
@@ -369,15 +375,10 @@ const AppRoutes = () => {
         {/* ── React Hooks ── */}
 
         <Route path="/react/hooks/use-state" element={<UseStatePage />} />
-
         <Route path="/react/hooks/use-effect" element={<UseEffectPage />} />
-
         <Route path="/react/hooks/use-ref" element={<UseRefPage />} />
-
         <Route path="/react/hooks/use-context" element={<UseContextPage />} />
-
         <Route path="/react/hooks/use-reducer" element={<UseReducerPage />} />
-
         <Route path="/react/hooks/use-memo" element={<UseMemoPage />} />
 
         <Route path="/react/hooks/use-callback" element={<UseCallbackPage />} />
