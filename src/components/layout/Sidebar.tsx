@@ -53,9 +53,9 @@ const navGroups: NavGroup[] = [
       { label: "Async / Await", path: "/js/async-await" },
       { label: "Error Handling", path: "/js/error-handling" },
       { label: "Modules", path: "/js/modules" },
-      { label: "🌱 Practice Questions: Easy", path: "/js/practice-easy" },
-      { label: "🧩 Practice Questions: Medium", path: "/js/practice-medium" },
-      { label: "🔥 Practice Questions: Hard", path: "/js/practice-hard" },
+      { label: "Practice Questions: Easy", path: "/js/practice-easy" },
+      { label: "Practice Questions: Medium", path: "/js/practice-medium" },
+      { label: "Practice Questions: Hard", path: "/js/practice-hard" },
     ],
   },
   {
