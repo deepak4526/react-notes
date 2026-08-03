@@ -127,7 +127,16 @@ const PrototypesPage = lazyNotePage(() =>
     (module) => module.prototypesNotes,
   ),
 );
-
+const DOM1 = lazyNotePage(() =>
+  import("../features/notes/data/javascript/dom1").then(
+    (module) => module.DOMFundamentals,
+  ),
+);
+const DOM2 = lazyNotePage(() =>
+  import("../features/notes/data/javascript/dom2").then(
+    (module) => module.DOMCollections,
+  ),
+);
 // ── JavaScript Practice ───────────────────────────────────────────
 
 const JsPracticeEasy = lazyNotePage(() =>
@@ -335,7 +344,8 @@ const AppRoutes = () => {
         <Route path="/js/hoisting" element={<HoistingPage />} />
         <Route path="/js/scope" element={<ScopePage />} />
         <Route path="/js/prototypes" element={<PrototypesPage />} />
-
+        <Route path="/js/dom-fundamentals" element={<DOM1 />} />
+        <Route path="/js/dom-collections" element={<DOM2 />} />
         {/* ── JavaScript Practice ── */}
 
         <Route path="/js/practice-easy" element={<JsPracticeEasy />} />

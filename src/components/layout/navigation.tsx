@@ -87,6 +87,8 @@ export const navGroups: NavGroup[] = [
         path: "/js/error-handling",
       },
       { emoji: "📂", label: "Modules", path: "/js/modules" },
+      { emoji: "🌳", label: "DOM Fundamentals", path: "/js/dom-fundamentals" },
+      { emoji: "📋", label: "DOM Collections", path: "/js/dom-collections" },
       {
         emoji: "🌱",
         label: "Practice Questions: Easy",
